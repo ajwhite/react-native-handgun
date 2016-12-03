@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import Camera from 'react-native-camera';
 import Crosshair from './crosshair';
+import BlastParticles from './blastParticles';
 import Weapon from './weapon';
 
 const {
@@ -38,6 +39,10 @@ export default class ShotCamera extends React.Component {
         <TouchableWithoutFeedback onPress={this.shoot}>
           <View style={styles.touchableSurface}>
             <Camera style={styles.camera} />
+            <BlastParticles
+              style={styles.blastParticles}
+              triggered={this.state.weaponTriggered}
+            />
             <Crosshair style={styles.crosshair} />
             <Weapon
               style={styles.weapon}
@@ -68,6 +73,11 @@ const styles = StyleSheet.create({
     width: 300,
     bottom: 0,
     right: 0
+  },
+  blastParticles: {
+    position: 'absolute',
+    top: (SCREEN_HEIGHT - 100) / 2,
+    left: (SCREEN_WIDTH - 100) / 2
   },
   touchableSurface: {
     position: 'absolute',
