@@ -1,0 +1,3 @@
+rootProject.name = 'FPSReload'
+
+include ':app'
